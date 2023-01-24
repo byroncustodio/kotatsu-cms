@@ -15,6 +15,9 @@ export default ({ env }) => ({
         database: env('DATABASE_NAME', connectionString.scheme),
         user: env('DATABASE_USERNAME', connectionString.username),
         password: env('DATABASE_PASSWORD', connectionString.password),
+        ssl: {
+          rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
+        },
       },
     },
   });

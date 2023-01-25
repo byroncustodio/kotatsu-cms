@@ -9,7 +9,10 @@ export default ({ env }) => ({
         port: config.port,
         database: config.database,
         user: config.user,
-        password: config.password
+        password: config.password,
+        ssl: {
+          rejectUnauthorized: env.bool('DATABASE_SSL_SELF', false),
+        },
       },
       debug: false
     },
